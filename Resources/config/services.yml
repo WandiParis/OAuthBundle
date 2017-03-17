@@ -1,0 +1,65 @@
+parameters:
+    wandi_oauth.uri_factory.class: OAuth\Common\Http\Uri\UriFactory
+    wandi_oauth.base_service_factory.class: OAuth\ServiceFactory
+    wandi_oauth.storage.class: OAuth\Common\Storage\SymfonySession
+    wandi_oauth.service_factory.class: Wandi\OAuthBundle\ServiceFactory\ServiceFactory
+
+    wandi_oauth.service.bitbucket.class: OAuth\OAuth1\Service\BitBucket
+    wandi_oauth.service.etsy.class: OAuth\OAuth1\Service\Etsy
+    wandi_oauth.service.fitbit.class: OAuth\OAuth1\Service\FitBit
+    wandi_oauth.service.flickr.class: OAuth\OAuth1\Service\Flickr
+    wandi_oauth.service.scoopit.class: OAuth\OAuth1\Service\ScoopIt
+    wandi_oauth.service.tumblr.class: OAuth\OAuth1\Service\Tumblr
+    wandi_oauth.service.twitter.class: OAuth\OAuth1\Service\Twitter
+    wandi_oauth.service.xing.class: OAuth\OAuth1\Service\Xing
+    wandi_oauth.service.yahoo.class: OAuth\OAuth1\Service\Yahoo
+    wandi_oauth.service.amazon.class: OAuth\OAuth2\Service\Amazon
+    wandi_oauth.service.bitly.class: OAuth\OAuth2\Service\Bitly
+    wandi_oauth.service.box.class: OAuth\OAuth2\Service\Box
+    wandi_oauth.service.buffer.class: OAuth\OAuth2\Service\Buffer
+    wandi_oauth.service.dailymotion.class: OAuth\OAuth2\Service\Dailymotion
+    wandi_oauth.service.dropbox.class: OAuth\OAuth2\Service\Dropbox
+    wandi_oauth.service.facebook.class: OAuth\OAuth2\Service\Facebook
+    wandi_oauth.service.foursquare.class: OAuth\OAuth2\Service\Foursquare
+    wandi_oauth.service.github.class: OAuth\OAuth2\Service\Github
+    wandi_oauth.service.google.class: OAuth\OAuth2\Service\Google
+    wandi_oauth.service.harvest.class: OAuth\OAuth2\Service\Harvest
+    wandi_oauth.service.heroku.class: OAuth\OAuth2\Service\Heroku
+    wandi_oauth.service.instagram.class: OAuth\OAuth2\Service\Instagram
+    #wandi_oauth.service.jawboneup.class: OAuth\OAuth2\Service\JawboneUp
+    wandi_oauth.service.linkedin.class: OAuth\OAuth2\Service\LinkedIn
+    wandi_oauth.service.mailchimp.class: OAuth\OAuth2\Service\Mailchimp
+    wandi_oauth.service.microsoft.class: OAuth\OAuth2\Service\Microsoft
+    wandi_oauth.service.paypal.class: OAuth\OAuth2\Service\Paypal
+    wandi_oauth.service.pocket.class: OAuth\OAuth2\Service\Pocket
+    wandi_oauth.service.reddit.class: OAuth\OAuth2\Service\Reddit
+    wandi_oauth.service.runkeeper.class: OAuth\OAuth2\Service\RunKeeper
+    #wandi_oauth.service.salesforce.class: OAuth\OAuth2\Service\Salesforce
+    wandi_oauth.service.soundcloud.class: OAuth\OAuth2\Service\SoundCloud
+    #wandi_oauth.service.spotify.class: OAuth\OAuth2\Service\Spotify
+    wandi_oauth.service.ustream.class: OAuth\OAuth2\Service\Ustream
+    wandi_oauth.service.vkontakte.class: OAuth\OAuth2\Service\Vkontakte
+    wandi_oauth.service.yammer.class: OAuth\OAuth2\Service\Yammer
+
+services:
+    wandi_oauth.uri_factory:
+        class: "%wandi_oauth.uri_factory.class%"
+        public: false
+
+    wandi_oauth.base_service_factory:
+        class: "%wandi_oauth.base_service_factory.class%"
+
+    wandi_oauth.storage:
+        class: "%wandi_oauth.storage.class%"
+        arguments:
+            - "@session"
+
+    wandi_oauth.service_factory:
+        class: "%wandi_oauth.service_factory.class%"
+        arguments:
+            - "@service_container"
+            - "@wandi_oauth.base_service_factory"
+            - "@wandi_oauth.storage"
+
+    # provider services are added dynamically. Tey're gonna having the following format:
+    # e.g.: wandi_oauth.service.xing

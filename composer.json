@@ -1,0 +1,82 @@
+{
+    "name": "wandi/oauth-bundle",
+    "description": "Symfony3 Wrapper for lusitanian/oauth library.",
+    "keywords": [
+        "Symfony",
+        "Symfony 2",
+        "Symfony 3",
+        "SF2",
+        "SF3",
+        "bundle",
+        "oauth",
+        "authentication",
+        "authorization",
+        "security",
+        "oauth1",
+        "oauth2",
+        "BitBucket",
+        "Etsy",
+        "FitBit",
+        "Flickr",
+        "ScoopeIt",
+        "Tumblr",
+        "Twitter",
+        "Xing",
+        "Yahoo",
+        "Amazon",
+        "Bitly",
+        "Box",
+        "Buffer",
+        "Dailymotion",
+        "Dropbox",
+        "Facebook",
+        "Foursquare",
+        "GitHub",
+        "Google",
+        "Harvest",
+        "Heroku",
+        "Instagram",
+        "JawboneUP",
+        "LinkedIn",
+        "Mailchimp",
+        "Microsoft",
+        "Paypal",
+        "Pocket",
+        "Reddit",
+        "RunKeeper",
+        "Salesforce",
+        "SoundCloud",
+        "Spotify",
+        "Ustream",
+        "Vkontakte",
+        "Yammer"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+		  "name": "Jacques N. de Lamballerie",
+		  "email": "jndl@wandi.fr"
+		},
+		{
+            "name": "Alexander Pinnecke",
+            "email": "alexander.pinnecke@googlemail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/framework-bundle": "~3",
+        "symfony/security-bundle": "~3",
+        "symfony/options-resolver": "~3",
+        "symfony/yaml": "~3",
+        "lusitanian/oauth": "0.8.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Wandi\\OAuthBundle\\": ""
+        }
+    },
+    "target-dir": "Wandi/OAuthBundle",
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    }
+}
