@@ -3,10 +3,6 @@
 oauth-bundle is a symfony 2 wrapper bundle for [Lusitanian/PHPoAuthLib](https://github.com/Lusitanian/PHPoAuthLib) 
 which provides oAuth support in PHP 5.3+ and is very easy to integrate with any project which requires an oAuth client.
 
-[![Build Status](https://api.travis-ci.org/wandi/OAuthBundle.png?branch=master)](https://travis-ci.org/WandiOAuthBundle)
-[![Latest Stable Version](https://poser.pugx.org/wandi/oauth-bundle/v/stable.png)](https://packagist.org/packages/wandi/oauth-bundle)
-[![Total Downloads](https://poser.pugx.org/wandi/oauth-bundle/downloads.png)](https://packagist.org/packages/wandi/oauth-bundle)
-
 ---
  
 - [Supported services](#supported-services)
@@ -95,7 +91,7 @@ wandi_oauth:
             client_secret: thisismyclientsecret
 ```
 
-**important**:The resource owner name has to be in correct casing. Have a look on the available constants in [./ServiceFactory/ResourceOwners.php](/blob/master/ServiceFactory/ResourceOwners.php)
+**important**:The resource owner name has to be in correct casing. Have a look on the available constants in [ServiceFactory/ResourceOwners.php](/ServiceFactory/ResourceOwners.php)
 
 Xing is used as an example here. Replace it with whatever your want. Now add all the resource owners you need, the services are created automatically.
 
