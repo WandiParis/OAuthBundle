@@ -3,9 +3,7 @@
     "description": "Symfony3 Wrapper for lusitanian/oauth library.",
     "keywords": [
         "Symfony",
-        "Symfony 2",
         "Symfony 3",
-        "SF2",
         "SF3",
         "bundle",
         "oauth",

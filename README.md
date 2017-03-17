@@ -1,6 +1,6 @@
-# OAuth wrapper for Symfony 2/3
+# OAuth wrapper for Symfony 3
 
-OAuthBundle is a symfony 2/3 wrapper bundle for [Lusitanian/PHPoAuthLib](https://github.com/Lusitanian/PHPoAuthLib) 
+OAuthBundle is a symfony 3 wrapper bundle for [Lusitanian/PHPoAuthLib](https://github.com/Lusitanian/PHPoAuthLib) 
 which provides oAuth support in PHP 5.3+ and is very easy to integrate with any project which requires an oAuth client.
 
 ---
