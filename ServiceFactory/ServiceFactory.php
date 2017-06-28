@@ -9,6 +9,7 @@ use OAuth\OAuth1\Token\StdOAuth1Token;
 use OAuth\OAuth2\Token\StdOAuth2Token;
 use OAuth\ServiceFactory as BaseServiceFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ServiceFactory
@@ -61,10 +62,12 @@ class ServiceFactory
 
         $lowerResourceOwnerName = $string = strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', "_$1", $resourceOwnerName));
 
+        $callbackRoute = $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.callback_route');
+
         $credentials = new Credentials(
             $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.client_id'),
             $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.client_secret'),
-            $this->container->get('router')->generate($this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.callback_route'), [], UrlGeneratorInterface::ABSOLUTE_URL)
+            $callbackRoute ? $this->container->get('router')->generate($callbackRoute, [], UrlGenerator::ABSOLUTE_URL) : null
         );
 
         $scopes = $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.scopes');

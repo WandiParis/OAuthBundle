@@ -41,7 +41,7 @@ class Configuration implements ConfigurationInterface
                         ->children()
                             ->scalarNode('client_id')->cannotBeEmpty()->end()
                             ->scalarNode('client_secret')->cannotBeEmpty()->end()
-                            ->scalarNode('callback_route')->end()
+                            ->scalarNode('callback_route')->defaultValue(null)->end()
 
                             ->arrayNode('scopes')
                                 ->prototype('scalar')->end()
