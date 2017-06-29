@@ -5,6 +5,7 @@ namespace Wandi\OAuthBundle\ServiceFactory;
 use OAuth\Common\Consumer\Credentials;
 use OAuth\Common\Exception\Exception;
 use OAuth\Common\Storage\TokenStorageInterface;
+use OAuth\Common\Http\Client\CurlClient;
 use OAuth\OAuth1\Token\StdOAuth1Token;
 use OAuth\OAuth2\Token\StdOAuth2Token;
 use OAuth\ServiceFactory as BaseServiceFactory;
@@ -74,6 +75,7 @@ class ServiceFactory
         $baseApiUrl = $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.base_api_url');
         $apiVersion = $this->container->getParameter('wandi_oauth.resource_owners.'.$lowerResourceOwnerName.'.api_version');
 
+        $this->factory->setHttpClient(new CurlClient());
         $service = $this->factory->createService($resourceOwnerName, $credentials, $this->storage, $scopes, $baseApiUrl, $apiVersion);
 
         if (!$this->storage->hasAccessToken($resourceOwnerName)) {
