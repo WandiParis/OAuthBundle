@@ -62,10 +62,10 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/framework-bundle": "~3",
-        "symfony/security-bundle": "~3",
-        "symfony/options-resolver": "~3",
-        "symfony/yaml": "~3",
+        "symfony/framework-bundle": "~4",
+        "symfony/security-bundle": "~4",
+        "symfony/options-resolver": "~4",
+        "symfony/yaml": "~4",
         "lusitanian/oauth": "0.8.*"
     },
     "autoload": {
